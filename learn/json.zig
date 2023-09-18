@@ -9,7 +9,7 @@ test "json parse with strings" {
     const parsed = try std.json.parseFromSlice(
         User,
         test_allocator,
-        \\{ "name": "Joe", "age": 25, "t":1  }
+        \\{ "name": "Joe", "age": 25 }
     ,
         .{},
     );
