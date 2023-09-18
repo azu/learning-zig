@@ -1,7 +1,7 @@
 const std = @import("std");
 const test_allocator = std.testing.allocator;
 const expect = std.testing.expect;
-const eql = std.testing;
+const eql = std.mem.eql;
 
 test "json parse with strings" {
     const User = struct { name: []u8, age: u16 };
@@ -9,7 +9,7 @@ test "json parse with strings" {
     const parsed = try std.json.parseFromSlice(
         User,
         test_allocator,
-        \\{ "name": "Joe", "age": 25 }
+        \\{ "name": "Joe", "age": 25, "t":1  }
     ,
         .{},
     );
